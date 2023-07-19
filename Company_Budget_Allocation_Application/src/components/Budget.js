@@ -17,7 +17,6 @@ const Budget=()=>{
     if(updatedBudget>20000){
         alert("The budget value cannot be greater than 20000")
         setBudget(20000)
-<<<<<<< HEAD
         dispatch({
             type: 'SET_BUDGET',
             payload: 20000,
@@ -28,30 +27,15 @@ const Budget=()=>{
     if(updatedBudget<totalExpenses)
     {
         alert("The budget cannot be less than Spent Money: "+currency+totalExpenses)
-=======
-    }
-
-    if(totalExpenses>updatedBudget)
-    {
-        alert("The budget cannot be less than Spent Money: "+currency+totalExpenses)
-        setBudget(totalExpenses+remaining)
->>>>>>> 7d4c34b8836ea4cfdc4d7c038c98ca4ca72d5e0b
         return 
     }
     if(updatedBudget<remaining)
     {
         alert("The value cannot be less than Remaining funds: "+currency+remaining)
-<<<<<<< HEAD
        return
     }
     else{
     
-=======
-        setBudget(remaining+totalExpenses)
-        return 
-    }
-    else{
->>>>>>> 7d4c34b8836ea4cfdc4d7c038c98ca4ca72d5e0b
         setBudget(updatedBudget);
         dispatch({
             type: 'SET_BUDGET',
