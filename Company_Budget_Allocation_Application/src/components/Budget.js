@@ -16,19 +16,19 @@ const Budget=()=>{
     const updatedBudget=passedVal;
     if(updatedBudget>20000){
         alert("The budget value cannot be greater than 20000")
-        return
+        setBudget(20000)
     }
 
-    if(updatedBudget<totalExpenses)
+    if(totalExpenses>updatedBudget)
     {
         alert("The budget cannot be less than Spent Money: "+currency+totalExpenses)
-        setBudget(totalExpenses)
+        setBudget(totalExpenses+remaining)
         return 
     }
     if(updatedBudget<remaining)
     {
         alert("The value cannot be less than Remaining funds: "+currency+remaining)
-        
+        setBudget(remaining+totalExpenses)
         return 
     }
     else{
@@ -39,7 +39,8 @@ const Budget=()=>{
         });
     }
 
-    }
+    
+}
 return (
 <div className='alert alert-secondary'>
 <div className="budget-div-inner"><span className='span-budget'>Budget{currency}:</span><input
