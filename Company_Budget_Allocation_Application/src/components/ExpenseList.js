@@ -3,7 +3,7 @@ import ExpenseItem from './ExpenseItem';
 import { AppContext } from '../context/AppContext';
 import '../App.css'
 const ExpenseList = () => {
-    const { expenses,currency } = useContext(AppContext);
+    const { expenses } = useContext(AppContext);
     
     return (
         <table className='table'>
