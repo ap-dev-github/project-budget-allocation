@@ -22,16 +22,19 @@ const Budget=()=>{
     if(totalExpenses>updatedBudget)
     {
         alert("The budget cannot be less than Spent Money: "+currency+totalExpenses)
-        setBudget(totalExpenses+remaining)
+        updatedBudget=(totalExpenses+remaining)
+        setBudget(updatedBudget)
         return 
     }
     if(updatedBudget<remaining)
     {
         alert("The value cannot be less than Remaining funds: "+currency+remaining)
-        setBudget(remaining+totalExpenses)
-        return 
+        updatedBudget=(remaining+totalExpenses);
+        setBudget(updatedBudget)
+       
     }
     else{
+    
         setBudget(updatedBudget);
         dispatch({
             type: 'SET_BUDGET',
