@@ -6,11 +6,22 @@ const Remaining = () => {
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
     }, 0);
-    const alertType = totalExpenses > budget ? 'alert-danger' : 'alert-success';
-    return (
-        <div className={`alert ${alertType}`}>
-            <span>Remaining: {currency}{budget - totalExpenses}</span>
+
+
+    if(totalExpenses>budget){
+        alert("Total expense cannot be greater than budget"+currency+budget)
+    }
+    else{
+        return (
+            <div className="alert alert-success">
+            <span>Remaining:{currency}{budget-totalExpenses}</span>
         </div>
-    );
-};
+
+            );
+      
+        
+    }
+   };
+
+
 export default Remaining;
