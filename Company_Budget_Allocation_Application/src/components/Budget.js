@@ -11,7 +11,7 @@ const Budget=()=>{
     const totalExpenses = expenses.reduce((total, item) => {
         return (total += item.cost);
     }, 0);
-   const[budget,setBudget]=useState(2000)
+   const[budget,setBudget]=useState(0)
    const setTheBudget=(passedVal)=>{
     const updatedBudget=passedVal;
     if(updatedBudget>20000){
@@ -56,7 +56,7 @@ return (
                         value={budget}
                         style={{ marginLeft: '2rem' , size: 10}}
                         onChange={(event) => setTheBudget(event.target.value)}>
-                        </input></div>
+                        </input><span className="span-budget-note">Enter your budget here.</span></div>
     
 </div>
 );
