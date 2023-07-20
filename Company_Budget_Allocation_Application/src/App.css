@@ -1,7 +1,9 @@
+
 .App {
   text-align: center;
- 
+  
 }
+
 
 
 .App-logo {
@@ -80,9 +82,14 @@
   background-color: rgb(240, 113, 113);
 }
 
+
+
 .table{
   height: fit-content;
-  width: 85vw;
+  width: 75vw;
+  background-color: #7298e4;
+  color: rgb(83, 83, 83);
+
 }
 
 .budget-div-inner{
@@ -96,6 +103,22 @@
 }
 
 .table-body{
-  background: linear-gradient(to top right,white,rgb(157, 157, 238));
+  background: linear-gradient(to top right,white,rgb(186, 186, 236));
 }
+
+.row{
+  margin-top: 1rem;
+  width: 79vw;
+  font-size: large;
+ 
+ 
+}
+
+.input-group-prepend{
+  margin: 0.5rem 1rem;
+}
+.custom-select{
+  margin:0.5rem 0.5rem;
+}
+
 
