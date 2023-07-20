@@ -39,7 +39,6 @@ const ExpenseItem = (props) => {
         
         <td><button className="increase-alloc-button" onClick={event=> increaseAllocation(props.name)}>+</button></td>
         <td><button className="decrease-alloc-button" onClick={event=> decreaseAllocation(props.name)}>-</button></td>
-        <td><FaTimesCircle size='2.0em' color="red" onClick={handleDeleteExpense}></FaTimesCircle></td>
         </tr>
     );
 };
