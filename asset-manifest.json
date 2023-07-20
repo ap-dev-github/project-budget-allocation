@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/project-budget-allocation/static/css/main.96eaf827.css",
-    "main.js": "/project-budget-allocation/static/js/main.59450a04.js",
+    "main.js": "/project-budget-allocation/static/js/main.156aa18d.js",
     "static/js/787.7385fb95.chunk.js": "/project-budget-allocation/static/js/787.7385fb95.chunk.js",
     "index.html": "/project-budget-allocation/index.html",
     "main.96eaf827.css.map": "/project-budget-allocation/static/css/main.96eaf827.css.map",
-    "main.59450a04.js.map": "/project-budget-allocation/static/js/main.59450a04.js.map",
+    "main.156aa18d.js.map": "/project-budget-allocation/static/js/main.156aa18d.js.map",
     "787.7385fb95.chunk.js.map": "/project-budget-allocation/static/js/787.7385fb95.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.96eaf827.css",
-    "static/js/main.59450a04.js"
+    "static/js/main.156aa18d.js"
   ]
 }
