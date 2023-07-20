@@ -11,7 +11,7 @@ const Budget=()=>{
     const totalExpenses = expenses.reduce((total, item) => {
         return (total += item.cost);
     }, 0);
-   const[budget,setBudget]=useState(2000)
+   const[budget,setBudget]=useState()
    const setTheBudget=(passedVal)=>{
     const updatedBudget=passedVal;
     if(updatedBudget>20000){
