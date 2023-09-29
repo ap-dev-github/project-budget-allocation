@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Monitoring System</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js" type="module"></script>
+
+    <script  type="module">
+
+
+    // Import Firebase App and the database service
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
+    import { getDatabase, ref, onValue} from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js';
+  
+    const firebaseConfig = {
+      databaseURL: 'https://water-quality-monitoring-47fca-default-rtdb.firebaseio.com',
+      projectId: 'water-quality-monitoring-47fca',
+      appId: '1:1056251252120:web:c88bc7407d5bf6991befed'
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  
+    const database = getDatabase(app);
+    
+   
+   
+
+    const updateUI = (snapshot) => {
+const sensorData = snapshot.val();
+ console.log('Sensor Data:', sensorData);
+ console.log('updateUI called with snapshot:', snapshot.val());
+    
+      //values corresponding to each key
+      const flowValue=sensorData.flow;
+      const phValue=sensorData.ph;
+      const temperatureValue=sensorData.temperature;
+      const turbidityValue=sensorData.turbidity;
+
+       //Updation of the User Interface
+       document.getElementById('flow-value').textContent= `(L/min):${flowValue}`;
+       document.getElementById('ph-value').textContent= `ph:${phValue}`;
+       document.getElementById('temperature-value').textContent= `℃:${temperatureValue}`;
+       document.getElementById('turbidity-value').textContent= `(NTU):${turbidityValue}`;
+
+
+       //Final conclusion logic
+    if((flowValue>=1)&&(phValue>=6.5&&phValue<=8.5)&&(temperatureValue>=16&&temperatureValue<=20)&&(turbidityValue<=5)){
+    document.getElementById('final-result').textContent="Best Quality Water";
+    document.getElementById('final-result').style.color='green';
+    }
+
+    else if((flowValue>1)&&(phValue>=6.5&&phValue<8.5)&&(temperatureValue>10&&temperatureValue<22)&&(turbidityValue>5&&turbidityValue<10))
+    {
+        document.getElementById('final-result').textContent="Drinkable Water" ;
+        document.getElementById('final-result').style.color='orange';
+      }
+
+    else if ((flowValue<1)||(phValue<6.5||phValue>8.5)||(temperatureValue<10||temperatureValue>22)||(turbidityValue>=10))
+      {
+        document.getElementById('final-result').textContent="Poor Quality Water";
+        document.getElementById('final-result').style.color='red';
+        
+
+
+        }
+    };
+
+    
+
+    const sensorDataRef = ref(database, 'sensorData');
+
+// Listen for changes in the sensorData and update the UI
+onValue(sensorDataRef, updateUI);
+
+// Automatically update the UI every 10 seconds (10000 milliseconds)
+setInterval(() => {
+// Fetch the data from the database again and update the UI
+onValue(sensorDataRef, updateUI);
+}, 3000); 
+    </script>
+   
+    
+</head>
+
+<body>
+
+    <div class="outer-div">
+        <div class="home">
+        <nav>
+        <section class="navigation">
+            <p class="nav-a" >Water Quality Monitoring System</p>
+            </section>
+            </nav>
+        </div>
+       
+
+     <main class="main-content">
+        <div class="main-content-div">
+            <section class="sensorData">
+               <section class="sensorData-main">
+            <fieldset>
+                        <legend id="sensorData-legend">Sensor Data</legend>
+                       <div class="sensorData-div">
+                            <div class="sensor"><img src="images/ph.png" alt="htmllogo"> <p class="sensor-name">PH Sensor</p><p class="sensor-value" id="ph-value">null</p></div>
+                            <div class="sensor"><img src="images/flow.png" alt="csslogo"> <p class="sensor-name">Flow Sensor</p><p class="sensor-value"id="flow-value">null</p></div>
+                            <div class="sensor"><img src="images/temperature.png" alt="jslogo"> <p class="sensor-name">Temperature</p><p class="sensor-value" id="temperature-value">null</p></div>
+                            <div class="sensor"><img src="images/turbidity.png" alt="javalogo"><p class="sensor-name">Turbidity</p><p class="sensor-value" id="turbidity-value">null</p></div>
+                        </section>
+                    </fieldset>
+                   
+                </section>
+                <section class="final-result-section">
+                    <div class="final-result-heading"><p>Water Quality</p></div>
+                    <p id="final-result">null</p>
+                </section>
+            </section>
+
+        </div>
+     </main>
+
+   
+
+    <div id="shapes">
+        <div class="circle1"></div>
+        <div class="square1"></div>
+        <div class="square2"></div>
+        <div class="circle2"></div>
+        
+    </div>
+    </div>
+</body>
+
+</html>
